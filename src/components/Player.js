@@ -67,7 +67,24 @@ const Player = () => {
       }, 200);
     }
   }, [audio]);
+  useEffect(() => {
+    const handleEnded = () => {
+      console.log(isShuffe);
+      if (isShuffe) {
+        handleShuffle();
+      } else if (isRepeat) {
+        handleNextSong();
+      } else {
+        audio.pause();
+        dispatch(actions.play(false));
+      }
+    };
+    audio.addEventListener("ended", handleEnded);
 
+    return () => {
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, [audio, isShuffe, isRepeat]);
   const handleTogglePlayMusic = async () => {
     if (isPlaying) {
       audio.pause();
@@ -106,10 +123,10 @@ const Player = () => {
     }
   };
   const handleShuffle = () => {
-    // const randomIndex = Math.round(Math.random() * songs?.length) - 1
-    // dispatch(actions.setCurSongId(songs[randomIndex].encodeId))
-    // dispatch(actions.play(true))
-    // setIsShuffe(prev => !prev)
+    const randomIndex = Math.round(Math.random() * songs?.length) - 1;
+    dispatch(actions.setCurSongId(songs[randomIndex].encodeId));
+    dispatch(actions.play(true));
+    setIsShuffe(!isShuffe);
   };
   return (
     <div className="bg-main-400 px-5 h-full flex">
@@ -140,7 +157,9 @@ const Player = () => {
         <div className="flex gap-8 justify-center items-center">
           <span
             onClick={() => setIsShuffe(!isShuffe)}
-            className={`cursor-pointer ${isShuffe && `text-purple-600`}`}
+            className={`cursor-pointer ${
+              isShuffe ? `text-purple-600` : "text-black"
+            }`}
             title="Bật phát ngẫu nhiên">
             <CiShuffle size={24} />
           </span>
@@ -163,7 +182,10 @@ const Player = () => {
             className={`${!songs ? "text-gray-500" : "cursor-pointer"}`}>
             <MdSkipNext size={24} />
           </span>
-          <span className="cursor-pointer" title="Bật phát lại tất cả">
+          <span
+            className={`cursor-pointer ${isRepeat && `text-purple-600`}`}
+            title="Bật phát lại tất cả"
+            onClick={() => setIsRepeat(!isRepeat)}>
             <CiRepeat size={24} />
           </span>
         </div>
