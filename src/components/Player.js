@@ -15,6 +15,7 @@ const {
   BsPauseFill,
   BsFillPlayFill,
   CiShuffle,
+  TbRepeatOnce,
 } = icons;
 var intervalId;
 const Player = () => {
@@ -26,7 +27,7 @@ const Player = () => {
   const thumbRef = useRef();
   const trackRef = useRef();
   const [isShuffe, setIsShuffe] = useState(false);
-  const [isRepeat, setIsRepeat] = useState(false);
+  const [repeatMode, setRepeatMode] = useState(0);
 
   useEffect(() => {
     const fetchDetailSong = async () => {
@@ -72,8 +73,8 @@ const Player = () => {
       console.log(isShuffe);
       if (isShuffe) {
         handleShuffle();
-      } else if (isRepeat) {
-        handleNextSong();
+      } else if (repeatMode) {
+        repeatMode === 1 ? handleRepeatOne() : handleNextSong();
       } else {
         audio.pause();
         dispatch(actions.play(false));
@@ -84,7 +85,7 @@ const Player = () => {
     return () => {
       audio.removeEventListener("ended", handleEnded);
     };
-  }, [audio, isShuffe, isRepeat]);
+  }, [audio, isShuffe, repeatMode]);
   const handleTogglePlayMusic = async () => {
     if (isPlaying) {
       audio.pause();
@@ -126,7 +127,9 @@ const Player = () => {
     const randomIndex = Math.round(Math.random() * songs?.length) - 1;
     dispatch(actions.setCurSongId(songs[randomIndex].encodeId));
     dispatch(actions.play(true));
-    setIsShuffe(!isShuffe);
+  };
+  const handleRepeatOne = () => {
+    audio.play();
   };
   return (
     <div className="bg-main-400 px-5 h-full flex">
@@ -136,6 +139,7 @@ const Player = () => {
           alt="thumbnail"
           className="w-16 h-16 object-cover rounded-md"
         />
+
         <div className="flex flex-col">
           <span className="font-semibold text-gray-700 text-sm">
             {songInfo?.title}
@@ -183,10 +187,16 @@ const Player = () => {
             <MdSkipNext size={24} />
           </span>
           <span
-            className={`cursor-pointer ${isRepeat && `text-purple-600`}`}
+            className={`cursor-pointer ${repeatMode && `text-purple-600`}`}
             title="Bật phát lại tất cả"
-            onClick={() => setIsRepeat(!isRepeat)}>
-            <CiRepeat size={24} />
+            onClick={() =>
+              setRepeatMode((prev) => (prev === 2 ? 0 : prev + 1))
+            }>
+            {repeatMode === 1 ? (
+              <TbRepeatOnce size={24} />
+            ) : (
+              <CiRepeat size={24} />
+            )}
           </span>
         </div>
         <div className="w-full flex items-center justify-center gap-3 text-xs">
