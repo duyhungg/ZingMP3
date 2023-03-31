@@ -2,7 +2,14 @@ import actionTypes from "../actions/actionTypes";
 
 const initState = {
   banner: [],
-  albumHot: {},
+  focus: {},
+  chill: {},
+  artis: {},
+  top100: {},
+  newMusic: {},
+  isLoading: false,
+  newRelease: {},
+  weekchart: [],
 };
 
 const appReducer = (state = initState, action) => {
@@ -13,11 +20,31 @@ const appReducer = (state = initState, action) => {
         banner:
           action.homeData?.find((item) => item.sectionId === "hSlider")
             ?.items || null,
-        albumHot:
+        focus:
+          action.homeData?.find((item) => item.sectionId === "hEditorTheme2") ||
+          {},
+        chill:
           action.homeData?.find((item) => item.sectionId === "hEditorTheme") ||
           {},
+        artis:
+          action.homeData?.find((item) => item.sectionId === "hArtistTheme") ||
+          {},
+        top100:
+          action.homeData?.find((item) => item.sectionId === "h100") || {},
+        newMusic:
+          action.homeData?.find((item) => item.sectionId === "hAlbum") || {},
+        newRelease:
+          action.homeData?.find((item) => item.sectionType === "new-release") ||
+          {},
+        weekChart:
+          action.homeData?.find((item) => item.sectionType === "weekChart")
+            ?.items || [],
       };
-
+    case actionTypes.LOADING:
+      return {
+        ...state,
+        isLoading: action.flag,
+      };
     default:
       return state;
   }

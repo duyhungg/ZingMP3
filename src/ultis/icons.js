@@ -23,9 +23,11 @@ import {
   BsPauseFill,
   BsMusicNoteBeamed,
   BsDot,
+  BsMusicNoteList,
 } from "react-icons/bs";
 import { CiRepeat, CiShuffle } from "react-icons/ci";
 import { TbRepeatOnce } from "react-icons/tb";
+import { SlVolumeOff, SlVolume2, SlVolume1 } from "react-icons/sl";
 const icons = {
   MdOutlineLibraryMusic,
   HiOutlineChartPie,
@@ -48,6 +50,10 @@ const icons = {
   BsMusicNoteBeamed,
   BsDot,
   TbRepeatOnce,
+  BsMusicNoteList,
+  SlVolumeOff,
+  SlVolume1,
+  SlVolume2,
 };
 
 export default icons;

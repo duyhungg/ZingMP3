@@ -27,7 +27,9 @@ const Album = () => {
   const { curSongId, isPlaying, songs } = useSelector((state) => state.music);
   useEffect(() => {
     const fetchDetailPlaylist = async () => {
+      dispatch(actions.loading(true));
       const response = await apis.apiGetDetaiPlaylist(pid);
+      dispatch(actions.loading(false));
       if (response?.data.err === 0) {
         setPlaylistData(response.data?.data);
         dispatch(actions.setPlaylist(response?.data?.data?.song.items));
@@ -38,7 +40,7 @@ const Album = () => {
   }, [pid]);
 
   return (
-    <div className="flex gap-8 w-full h-full px-[59px]">
+    <div className="flex gap-8 relative w-full h-full px-[59px] animate-scale-up-center">
       <div className="flex-none w-1/4 border border-red-500 flex flex-col items-center gap-2">
         <div className="relative w-full overflow-hidden">
           <img
