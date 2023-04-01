@@ -1,6 +1,12 @@
-import { Slider, Section, NewRelease, Rank } from "../../components";
+import {
+  Slider,
+  Section,
+  NewRelease,
+  Rank,
+  ChartSection,
+} from "../../components";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+
 const Home = () => {
   const { focus, chill, artis, top100, newMusic, weekChart } = useSelector(
     (state) => state.app
@@ -15,6 +21,7 @@ const Home = () => {
       <Section data={top100} />
       <Section data={newMusic} />
       <Rank data={weekChart} />
+      <ChartSection />
       <div className="w-full h-[500px]"></div>
     </div>
   );

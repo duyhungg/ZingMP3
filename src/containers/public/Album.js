@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import * as actions from "../../store/actions";
 import { useSelector } from "react-redux";
 import icons from "../../ultis/icons";
+import { useLocation } from "react-router-dom";
 const Album = () => {
   const {
     AiOutlineHeart,
@@ -25,6 +26,19 @@ const Album = () => {
   const [playlistData, setPlaylistData] = useState({});
   const dispatch = useDispatch();
   const { curSongId, isPlaying, songs } = useSelector((state) => state.music);
+  const location = useLocation();
+  useEffect(() => {
+    //console.log(location.state?.playAlbum);
+    if (location.state?.playAlbum) {
+      const randomSong =
+        Math.round(Math.random() * playlistData?.song?.items?.length) - 1;
+      dispatch(
+        actions.setCurSongId(playlistData?.song?.items[randomSong]?.encodeId)
+      );
+      dispatch(actions.play(true));
+    }
+  }, [pid, playlistData]);
+
   useEffect(() => {
     const fetchDetailPlaylist = async () => {
       dispatch(actions.loading(true));

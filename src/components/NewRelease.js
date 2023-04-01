@@ -52,14 +52,15 @@ function NewRelease() {
         {songs
           ?.filter((item, index) => index < 12)
           ?.map((item) => (
-            <SongItem
-              key={item.encodeId}
-              thumbnail={item.thumbnail}
-              title={item.title}
-              artists={item.artistsNames}
-              releaseDate={item.releaseDate}
-              sid={item.encodeId}
-            />
+            <div key={item.encodeId} className="w-[45%] min-[1024px]:w-[30%]">
+              <SongItem
+                thumbnail={item.thumbnail}
+                title={item.title}
+                artists={item.artistsNames}
+                releaseDate={item.releaseDate}
+                sid={item.encodeId}
+              />
+            </div>
           ))}
       </div>
     </div>
