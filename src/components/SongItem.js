@@ -12,6 +12,7 @@ const SongItem = ({
   sid,
   order,
   percent,
+  style,
 }) => {
   const dispatch = useDispatch();
   return (
@@ -21,16 +22,14 @@ const SongItem = ({
         dispatch(actions.play(true));
       }}
       className={`w-full flex p-[10px] gap-[10px] justify-between items-center rounded-md cursor-pointer ${
-        order
-          ? "text-white bg-[hsla(0,0%,100%,.07)] hover:bg-[#945EA7]"
-          : "text-black hover:bg-main-200"
+        style || "text-black hover:bg-main-200"
       }`}>
       <div className="flex gap-4">
         {order && (
           <span
             className={`${
-              order === 1 ? "" : ""
-            } text-white drop-shadow-md text-[32px] m-auto`}>
+              order === 1 ? "text-shadow-no1" : ""
+            } text-[rgba(77,34,104,0.9)] text-[32px] m-auto`}>
             {order}
           </span>
         )}
