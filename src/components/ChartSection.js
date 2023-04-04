@@ -112,11 +112,11 @@ function ChartSection() {
     setData({ labels, datasets });
   }, [chart]);
   return (
-    <div className="px-[59px] mt-12 relative max-h-[530px] rounded-md">
+    <div className="px-[59px] mt-12 relative max-h-[430px] rounded-md">
       <img
         src={bgChart}
         alt="bg-chart"
-        className="w-full object-cover rounded-md max-h-[530px]"
+        className="w-full object-cover rounded-md max-h-[430px]"
       />
       <div className="absolute top-0 z-10 left-[59px] bg-[rgba(77,34,104,0.9)] right-[59px] bottom-0 rounded-md "></div>
       <div className="absolute top-0 z-20 left-[59px] right-[59px] bottom-0 p-5 flex flex-col gap-8 rounded-md ">

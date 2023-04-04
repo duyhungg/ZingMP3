@@ -10,13 +10,14 @@ import {
   HiArrowNarrowRight,
 } from "react-icons/hi";
 import { TbChartArcs } from "react-icons/tb";
+import { ImBin2 } from "react-icons/im";
 import {
   AiOutlineArrowLeft,
   AiOutlineArrowRight,
   AiFillHeart,
   AiOutlineHeart,
 } from "react-icons/ai";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiSettings } from "react-icons/fi";
 import {
   BsThreeDots,
   BsFillPlayFill,
@@ -28,7 +29,9 @@ import {
 import { CiRepeat, CiShuffle } from "react-icons/ci";
 import { TbRepeatOnce } from "react-icons/tb";
 import { SlVolumeOff, SlVolume2, SlVolume1 } from "react-icons/sl";
+import { RiVipDiamondLine } from "react-icons/ri";
 const icons = {
+  RiVipDiamondLine,
   MdOutlineLibraryMusic,
   HiOutlineChartPie,
   TbChartArcs,
@@ -54,6 +57,8 @@ const icons = {
   SlVolumeOff,
   SlVolume1,
   SlVolume2,
+  FiSettings,
+  ImBin2,
 };
 
 export default icons;

@@ -12,6 +12,7 @@ const initState = {
   weekchart: [],
   chart: {},
   rank: [],
+  radio: {},
 };
 
 const appReducer = (state = initState, action) => {
@@ -47,6 +48,9 @@ const appReducer = (state = initState, action) => {
         rank:
           action.homeData?.find((item) => item.sectionId === "hZC")?.items ||
           [],
+        radio:
+          action.homeData?.find((item) => item.sectionId === "hLiveRadio") ||
+          {},
       };
     case actionTypes.LOADING:
       return {
