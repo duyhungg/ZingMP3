@@ -30,6 +30,7 @@ const Public = () => {
           <div className="flex-auto w-full">
             <Scrollbars autoHide style={{ width: "100%", height: "100%" }}>
               <Outlet />
+              <div className="w-full h-[120px]"></div>
             </Scrollbars>
           </div>
         </div>
@@ -39,6 +40,7 @@ const Public = () => {
           </div>
         )}
       </div>
+
       <div className="fixed bottom-0 left-0 right-0 h-[90px]">
         <Player setIsShowRightSidebar={setIsShowRightSidebar} />
       </div>

@@ -30,7 +30,11 @@ const SongItem = ({
         {order && (
           <span
             className={`${
-              order === 1 ? "text-shadow-no1" : ""
+              order === 1
+                ? "text-shadow-no1"
+                : order === 2
+                ? "text-shadow-no2"
+                : "text-shadow-no3"
             } text-[rgba(77,34,104,0.9)] text-[32px] m-auto`}>
             {order}
           </span>

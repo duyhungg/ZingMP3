@@ -105,7 +105,7 @@ function RightSidebar() {
           </div>
         </div>
       )}
-      <div className="w-full h-[90px]"></div>
+      <div className="w-full h-[120px]"></div>
     </div>
   );
 }

@@ -88,9 +88,11 @@ function ChartSection() {
     if (chart?.items) {
       for (let i = 0; i < 3; i++) {
         datasets.push({
-          data: chart?.items[Object.keys(chart?.items)[i]]
-            ?.filter((item) => +item.hour % 2 === 0)
-            ?.map((item) => item.counter),
+          data:
+            chart?.items &&
+            chart?.items[Object.keys(chart?.items)[i]]
+              ?.filter((item) => +item.hour % 2 === 0)
+              ?.map((item) => item.counter),
           borderColor:
             i === 0
               ? "rgb(74,144 , 226)"
@@ -143,31 +145,29 @@ function ChartSection() {
                 />
               ))}
           </div>
-          {data && (
-            <div className="flex-7 h-[90%] relative">
-              <Line ref={chartRef} data={data} options={options} />
-              <div
-                className="tooltip"
-                style={{
-                  top: tooltip.top,
-                  left: tooltip.left,
-                  position: "absolute",
-                  opacity: tooltip.opacity,
-                }}>
-                <SongItem
-                  thumbnail={
-                    rank?.find((i) => i.encodeId === tooltipData)?.thumbnail
-                  }
-                  title={rank?.find((i) => i.encodeId === tooltipData)?.title}
-                  artists={
-                    rank?.find((i) => i.encodeId === tooltipData)?.artistsNames
-                  }
-                  sid={rank?.find((i) => i.encodeId === tooltipData)?.encodeId}
-                  style="bg-white"
-                />
-              </div>
+          <div className="flex-7 h-[90%] relative">
+            {data && <Line ref={chartRef} data={data} options={options} />}
+            <div
+              className="tooltip"
+              style={{
+                top: tooltip.top,
+                left: tooltip.left,
+                position: "absolute",
+                opacity: tooltip.opacity,
+              }}>
+              <SongItem
+                thumbnail={
+                  rank?.find((i) => i.encodeId === tooltipData)?.thumbnail
+                }
+                title={rank?.find((i) => i.encodeId === tooltipData)?.title}
+                artists={
+                  rank?.find((i) => i.encodeId === tooltipData)?.artistsNames
+                }
+                sid={rank?.find((i) => i.encodeId === tooltipData)?.encodeId}
+                style="bg-white"
+              />
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>

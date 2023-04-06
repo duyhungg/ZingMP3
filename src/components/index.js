@@ -16,3 +16,4 @@ export { default as Rank } from "./Rank";
 export { default as SectionItem } from "./SectionItem";
 export { default as ChartSection } from "./ChartSection";
 export { default as Login } from "./Login";
+export { default as RankList } from "./RankList";
