@@ -10,7 +10,7 @@ import {
 import { Scrollbars } from "react-custom-scrollbars-2";
 import { useSelector } from "react-redux";
 const Public = () => {
-  const [isShowRightSidebar, setIsShowRightSidebar] = useState(true);
+  const [isShowRightSidebar, setIsShowRightSidebar] = useState(false);
   const { isLoading } = useSelector((state) => state.app);
   return (
     <div className="w-full relative h-screen flex flex-col bg-main-300">

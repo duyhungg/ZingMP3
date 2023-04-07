@@ -7,6 +7,7 @@ import SongItem from "../../components/SongItem";
 import List from "../../components/List";
 import bgChart from "../../assets/bg-chart.jpg";
 import { RankList } from "../../components";
+import { RiH3 } from "react-icons/ri";
 function ZingChart() {
   const [chartData, setChartData] = useState(undefined);
   const [data, setData] = useState(null);
@@ -168,13 +169,20 @@ function ZingChart() {
         </div>
       </div>
       <div className="px-[60px] mt-12">
-        <RankList data={chartData?.RTChart?.items} />
+        <RankList
+          data={chartData?.RTChart?.items}
+          number={10}
+          node={false}
+          isHideAlbums={true}
+          numberSlides={30}
+          numberArtists={30}
+        />
       </div>
-      <div className=" m-4">
-        <div className=" font-bold text-[40px] text-main-500 ml-6 flex items-center">
+      <div className=" m-4 flex flex-col">
+        <h3 className=" font-bold text-[40px] text-main-500 ml-6 flex items-center mt-3">
           Bảng xếp hạng tuần
-        </div>
-        <div className="flex gap-4">
+        </h3>
+        <div className="flex gap-4 h-fit">
           {chartData?.weekChart &&
             Object.entries(chartData?.weekChart).map((item, index) => (
               <div
@@ -189,8 +197,14 @@ function ZingChart() {
                     ? "K-POP"
                     : ""}
                 </h3>
-                <div className="mt-4">
-                  <RankList data={item[1]?.items} />
+                <div className="mt-4 h-fit">
+                  <RankList
+                    data={item[1]?.items}
+                    number={5}
+                    isHideAlbums={false}
+                    numberSlides={10}
+                    numberArtists={10}
+                  />
                 </div>
               </div>
             ))}

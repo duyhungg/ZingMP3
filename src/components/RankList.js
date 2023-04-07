@@ -1,12 +1,12 @@
 import { memo } from "react";
 import { useEffect, useState } from "react";
 import List from "./List";
-function RankList({ data }) {
+function RankList({ data, number, isHideAlbums, numberSlides, numberArtists }) {
   const [isShowFull, setIsShowFull] = useState(false);
   const [songs, setSongs] = useState();
   useEffect(() => {
     if (!isShowFull) {
-      setSongs(data?.filter((item, index) => index < 10));
+      setSongs(data?.filter((item, index) => index < number));
     } else {
       setSongs(data);
     }
@@ -14,9 +14,17 @@ function RankList({ data }) {
   return (
     <div className="w-full">
       {songs?.map((item, index) => (
-        <List key={item.encodeId} songData={item} order={index + 1} />
+        <List
+          key={item.encodeId}
+          songData={item}
+          order={index + 1}
+          node={false}
+          isHideAlbum={isHideAlbums}
+          numberSlide={numberSlides}
+          numberArtist={numberArtists}
+        />
       ))}
-      <div className="flex w-full items-center justify-center">
+      <div className="flex w-full items-center justify-center ">
         <button
           type="button"
           onClick={() => setIsShowFull(!isShowFull)}

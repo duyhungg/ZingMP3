@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import icons from "../ultis/icons";
 import moment from "moment";
 import { useDispatch } from "react-redux";
@@ -6,9 +6,16 @@ import * as actions from "../store/actions";
 
 const { BsMusicNoteBeamed } = icons;
 
-const List = ({ songData, order }) => {
+const List = ({
+  songData,
+  order,
+  node,
+  isHideAlbum,
+  numberSlide,
+  numberArtist,
+}) => {
   const dispatch = useDispatch();
-
+  const [isNode, setIsNode] = useState(false);
   // console.log(songData);
   return (
     <div
@@ -41,28 +48,41 @@ const List = ({ songData, order }) => {
             {order}
           </span>
         )}
-        <span>
-          <BsMusicNoteBeamed />
-        </span>
+
+        {node ? (
+          <span>
+            <BsMusicNoteBeamed />
+          </span>
+        ) : (
+          ""
+        )}
         <img
           src={songData?.thumbnail}
           alt="thumbnailM"
           className="w-10 h-10 object-cover rounded-md"
         />
-        <span className="flex flex-col w-full">
-          <span className="text-sm font-semibold">
-            {songData?.title?.length > 30
-              ? `${songData?.title?.slice(0, 30)}...`
+        <div className="flex flex-col w-full flex-1">
+          <span className="text-sm font-semibold w-full">
+            {songData?.title?.length > numberSlide
+              ? `${songData?.title?.slice(0, numberSlide)}...`
               : songData?.title}
           </span>
-          <span>{songData?.artistsNames}</span>
-        </span>
+          <span>
+            {songData?.artistsNames.length > numberArtist
+              ? `${songData?.artistsNames.slice(0, numberArtist)}... `
+              : songData?.artistsNames}
+          </span>
+        </div>
       </div>
-      <div className="flex-1 flex items-center justify-center text-sm">
-        {songData?.album?.title?.length > 30
-          ? `${songData?.album?.title?.slice(0, 30)}...`
-          : songData?.album?.title}
-      </div>
+      {isHideAlbum ? (
+        <div className="flex-1 flex items-center justify-center text-sm">
+          {songData?.album?.title?.length > numberSlide
+            ? `${songData?.album?.title?.slice(0, numberSlide)}...`
+            : songData?.album?.title}
+        </div>
+      ) : (
+        ""
+      )}
       <div className="flex-1 flex justify-end">
         {moment.utc(songData?.duration * 1000).format("mm:ss")}
       </div>
