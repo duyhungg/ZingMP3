@@ -56,7 +56,7 @@ const Album = () => {
 
   return (
     <div className="flex gap-8 relative w-full h-full px-[59px] animate-scale-up-center">
-      <div className="flex-none w-1/4 border border-red-500 flex flex-col items-center gap-2">
+      <div className="flex-none w-1/4  flex flex-col items-center gap-2">
         <div className="relative w-full overflow-hidden">
           <img
             src={playlistData?.thumbnailM}
@@ -77,7 +77,7 @@ const Album = () => {
           </div>
         </div>
         <div className="flex flex-col items-center gap-1">
-          <h3 className="text-[20px] font-bold text-gray-800">
+          <h3 className="text-[20px] font-bold text-gray-800 items-center">
             {playlistData?.title}
           </h3>
           <span className="flex gap-2 items-center text-gray-500 text-xs">

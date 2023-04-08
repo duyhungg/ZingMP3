@@ -204,6 +204,7 @@ function ZingChart() {
                     isHideAlbums={false}
                     numberSlides={10}
                     numberArtists={10}
+                    link={item[1]?.link}
                   />
                 </div>
               </div>

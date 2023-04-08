@@ -61,8 +61,8 @@ const List = ({
           alt="thumbnailM"
           className="w-10 h-10 object-cover rounded-md"
         />
-        <div className="flex flex-col w-full flex-1">
-          <span className="text-sm font-semibold w-full">
+        <div className="flex flex-col w-full ">
+          <span className="text-sm font-semibold ">
             {songData?.title?.length > numberSlide
               ? `${songData?.title?.slice(0, numberSlide)}...`
               : songData?.title}
