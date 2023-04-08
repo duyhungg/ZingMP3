@@ -30,7 +30,7 @@ function SectionItem({
       onClick={() => {
         navigate(link?.split(".")[0], { state: { playAlbum: false } });
       }}
-      className="flex flex-col gap-3 flex-auto justify-start w-1/5 text-sm cursor-pointer">
+      className="flex flex-col gap-3 justify-start flex-1 text-sm cursor-pointer">
       <div
         onMouseEnter={handleHover}
         onMouseLeave={handleLeave}

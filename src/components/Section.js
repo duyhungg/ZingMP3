@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import SectionItem from "./SectionItem";
-
 function Section({ data }) {
   return (
     <div className="mt-12 px-[59px] flex flex-col gap-5">

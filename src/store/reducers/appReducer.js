@@ -13,6 +13,7 @@ const initState = {
   chart: {},
   rank: [],
   radio: {},
+  singer: {},
 };
 
 const appReducer = (state = initState, action) => {
@@ -51,6 +52,10 @@ const appReducer = (state = initState, action) => {
         radio:
           action.homeData?.find((item) => item.sectionId === "hLiveRadio") ||
           {},
+        singer:
+          action.homeData?.find(
+            (item) => item.sectionId === "artistSpotlight"
+          ) || {},
       };
     case actionTypes.LOADING:
       return {

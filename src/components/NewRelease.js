@@ -50,7 +50,7 @@ function NewRelease() {
       </div>
       <div className="flex flex-wrap w-full justify-between">
         {songs
-          ?.filter((item, index) => index < 12)
+          ?.filter((item, index) => index < 8)
           ?.map((item) => (
             <div key={item.encodeId} className="w-[45%] min-[1024px]:w-[30%]">
               <SongItem
