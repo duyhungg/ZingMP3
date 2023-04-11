@@ -17,3 +17,7 @@ export { default as SectionItem } from "./SectionItem";
 export { default as ChartSection } from "./ChartSection";
 export { default as Login } from "./Login";
 export { default as RankList } from "./RankList";
+export { default as Sponsor } from "./Sponsor";
+export { default as Artist } from "./Artist";
+export { default as Radio } from "./Radio";
+export { default as RadioList } from "./RadioList";

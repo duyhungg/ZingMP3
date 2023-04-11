@@ -143,7 +143,7 @@ const Player = ({ setIsShowRightSidebar }) => {
     audio.play();
   };
   return (
-    <div className="bg-main-400 px-5 h-full flex">
+    <div className="bg-main-400 px-5 h-full flex z-100">
       <div className="w-[30%] flex-auto flex gap-3 items-center">
         <img
           src={songInfo?.thumbnail}

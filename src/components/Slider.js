@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Component } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getArrSlider } from "../ultis/fn";
 import * as actions from "../store/actions";
 import { useNavigate } from "react-router-dom";
-
 const Slider = () => {
   const { banner } = useSelector((state) => state.app);
   const dispatch = useDispatch();
@@ -89,6 +88,7 @@ const Slider = () => {
       <div className="flex w-full gap-8 pt-8 cursor-pointer">
         {banner?.map((item, index) => (
           <img
+            alt=""
             key={item.encodeId}
             src={item.banner}
             onClick={() => handleClickBanner(item)}

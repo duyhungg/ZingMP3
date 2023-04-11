@@ -8,6 +8,7 @@ import _ from "lodash";
 import { Link } from "react-router-dom";
 import path from "../ultis/path";
 import icons from "../ultis/icons";
+import { NavLink } from "react-router-dom";
 function ChartSection() {
   const { BsFillPlayFill } = icons;
   const [data, setData] = useState(null);
@@ -144,6 +145,11 @@ function ChartSection() {
                   style="text-white bg-[hsla(0,0%,100%,.07)] hover:bg-[#945EA7]"
                 />
               ))}
+            <NavLink to={path.ZING_CHART}>
+              <div className="flex items-center justify-center hover:cursor-pointer border border-white rounded-sm">
+                Xem thêm
+              </div>
+            </NavLink>
           </div>
           <div className="flex-7 h-[90%] relative">
             {data && <Line ref={chartRef} data={data} options={options} />}

@@ -4,13 +4,16 @@ import {
   NewRelease,
   Rank,
   ChartSection,
+  Sponsor,
+  Artist,
+  RadioList,
 } from "../../components";
 import { useSelector } from "react-redux";
 import Loading from "../../components/Loading";
 const Home = () => {
   const { focus, chill, artis, top100, newMusic, weekChart, radio } =
     useSelector((state) => state.app);
-  //console.log(radio);
+  console.log(radio);
 
   return (
     <>
@@ -22,9 +25,12 @@ const Home = () => {
           <Section data={chill} />
           <Section data={artis} />
           <Section data={top100} />
+          <Artist />
           <Section data={newMusic} />
           <Rank data={weekChart} />
           <ChartSection />
+          <RadioList data={radio} />
+          <Sponsor />
           <div className="w-full h-[100px]"></div>
         </div>
       ) : (
