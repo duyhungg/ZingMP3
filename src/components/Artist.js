@@ -32,13 +32,16 @@ function Artist() {
     slidesToScroll: 1,
   };
   return (
-    <div className="px-[59px] w-full">
+    <div className="px-[59px] w-full pt-5">
+      <div className="flex items-center ">
+        <h3 className="text-[20px] font-bold">ARTIST</h3>
+      </div>
       <Slider {...settings}>
         {arrArtist.map((item, index) => (
-          <div className="flex items-center justify-center " key={index}>
+          <div className="flex items-center justify-center" key={index}>
             <img
               src={item}
-              className="object-contain hover:cursor-pointer hover:animate-scale-up-image"
+              className="object-contain hover:cursor-pointer hover:animate-scale-up-image w-[160px] h-[190px]"
               alt="item"
             />
           </div>
