@@ -3,7 +3,10 @@ import {
   MdOutlineFeed,
   MdSkipNext,
   MdSkipPrevious,
+  MdOutlinePrivacyTip,
+  MdLogout,
 } from "react-icons/md";
+import { BiBlock } from "react-icons/bi";
 import {
   HiOutlineChartPie,
   HiArrowNarrowLeft,
@@ -18,6 +21,7 @@ import {
   AiFillHeart,
   AiOutlineHeart,
   AiOutlineStar,
+  AiOutlineInfoCircle,
 } from "react-icons/ai";
 import { FiSearch, FiSettings } from "react-icons/fi";
 import {
@@ -27,11 +31,21 @@ import {
   BsMusicNoteBeamed,
   BsDot,
   BsMusicNoteList,
+  BsFillTelephoneFill,
+  BsFillFileRuledFill,
+  BsArrowUpRight,
+  BsBrush,
+  BsUpload,
 } from "react-icons/bs";
 import { CiRepeat, CiShuffle } from "react-icons/ci";
 import { TbRepeatOnce } from "react-icons/tb";
 import { SlVolumeOff, SlVolume2, SlVolume1 } from "react-icons/sl";
-import { RiVipDiamondLine } from "react-icons/ri";
+import {
+  RiVipDiamondLine,
+  RiAdvertisementFill,
+  RiVipFill,
+  RiVipCrown2Fill,
+} from "react-icons/ri";
 const icons = {
   RiVipDiamondLine,
   MdOutlineLibraryMusic,
@@ -60,9 +74,21 @@ const icons = {
   SlVolume1,
   SlVolume2,
   FiSettings,
+  AiOutlineInfoCircle,
   ImBin2,
   AiOutlineStar,
   HiOutlineTrendingUp,
+  BsFillTelephoneFill,
+  RiAdvertisementFill,
+  BsFillFileRuledFill,
+  MdOutlinePrivacyTip,
+  BsArrowUpRight,
+  BsBrush,
+  MdLogout,
+  BsUpload,
+  BiBlock,
+  RiVipFill,
+  RiVipCrown2Fill,
 };
 
 export default icons;

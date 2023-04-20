@@ -5,11 +5,9 @@ import Tippy from "@tippyjs/react/";
 import Tippys from "@tippyjs/react/headless";
 import Setting from "./Setting";
 import "tippy.js/dist/tippy.css"; // optional
+import Avatar from "./Avatar";
 function Login() {
-  const { RiVipDiamondLine, FiSettings } = icons;
-  const [setting, setSetting] = useState(false);
-  const show = () => setSetting(true);
-  const hide = () => setSetting(false);
+  const { RiVipDiamondLine } = icons;
   return (
     <div className="flex gap-6 items-center justify-center">
       <Tippy content="Nâng cấp Vip">
@@ -18,11 +16,7 @@ function Login() {
         </span>
       </Tippy>
       <Setting />
-      <img
-        src={avatar}
-        alt="avatar"
-        className="object-cover w-[40px] h-[40px] rounded-full hover:cursor-pointer"
-      />
+      <Avatar />
       <></>
     </div>
   );

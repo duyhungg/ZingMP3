@@ -23,3 +23,5 @@ export { default as Radio } from "./Radio";
 export { default as RadioList } from "./RadioList";
 export { default as ResultSearch } from "./ResultSearch";
 export { default as Setting } from "./Setting";
+export { default as Menu } from "./Menu";
+export { default as Avatar } from "./Avatar";
