@@ -8,6 +8,7 @@ import {
   HiOutlineChartPie,
   HiArrowNarrowLeft,
   HiArrowNarrowRight,
+  HiOutlineTrendingUp,
 } from "react-icons/hi";
 import { TbChartArcs } from "react-icons/tb";
 import { ImBin2 } from "react-icons/im";
@@ -16,6 +17,7 @@ import {
   AiOutlineArrowRight,
   AiFillHeart,
   AiOutlineHeart,
+  AiOutlineStar,
 } from "react-icons/ai";
 import { FiSearch, FiSettings } from "react-icons/fi";
 import {
@@ -59,6 +61,8 @@ const icons = {
   SlVolume2,
   FiSettings,
   ImBin2,
+  AiOutlineStar,
+  HiOutlineTrendingUp,
 };
 
 export default icons;

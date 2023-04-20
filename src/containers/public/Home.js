@@ -15,7 +15,6 @@ import theme1 from "../../assets/theme1.jpg";
 const Home = () => {
   const { focus, chill, artis, top100, newMusic, weekChart, radio } =
     useSelector((state) => state.app);
-  console.log(radio);
 
   return (
     <>

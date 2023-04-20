@@ -41,6 +41,7 @@ function WeekRank({ weekChart }) {
                   weekChart?.find((item) => item?.link?.includes(pid))?.items
                 }
                 number={20}
+                nodes={false}
                 isHideAlbums={true}
                 numberSlides={30}
                 numberArtists={30}

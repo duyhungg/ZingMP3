@@ -21,3 +21,5 @@ export { default as Sponsor } from "./Sponsor";
 export { default as Artist } from "./Artist";
 export { default as Radio } from "./Radio";
 export { default as RadioList } from "./RadioList";
+export { default as ResultSearch } from "./ResultSearch";
+export { default as Setting } from "./Setting";

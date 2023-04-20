@@ -15,7 +15,6 @@ const List = ({
   numberArtist,
 }) => {
   const dispatch = useDispatch();
-  const [isNode, setIsNode] = useState(false);
   // console.log(songData);
   return (
     <div

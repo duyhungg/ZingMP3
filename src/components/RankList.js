@@ -10,6 +10,7 @@ function RankList({
   numberSlides,
   numberArtists,
   link,
+  nodes,
 }) {
   const [isShowFull, setIsShowFull] = useState(false);
   const [songs, setSongs] = useState();
@@ -28,7 +29,7 @@ function RankList({
           key={item.encodeId}
           songData={item}
           order={index + 1}
-          node={false}
+          node={nodes}
           isHideAlbum={isHideAlbums}
           numberSlide={numberSlides}
           numberArtist={numberArtists}

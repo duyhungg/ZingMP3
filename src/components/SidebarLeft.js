@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.svg";
-import { sidebarMenu } from "../ultis/menu";
+import { sidebarMenu, underLeftSightBar } from "../ultis/menu";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import path from "../ultis/path";
@@ -28,6 +28,19 @@ const SidebarLeft = () => {
             className={({ isActive }) =>
               isActive ? activeStyle : notActiveStyle
             }>
+            {item.icons}
+            <span>{item.text}</span>
+          </NavLink>
+        ))}
+      </div>
+      <div className="border border-main-500 ml-[25px] mr-[25px] mt-5"></div>
+      <div className="flex flex-col">
+        {underLeftSightBar.map((item, index) => (
+          <NavLink
+            to={item.path}
+            key={index}
+            end={item.end}
+            className={notActiveStyle}>
             {item.icons}
             <span>{item.text}</span>
           </NavLink>
