@@ -19,6 +19,9 @@ const Personal = () => {
   //console.log(newRelease);
   return (
     <div className="">
+      <h3 className="flex items-center justify-center mt-5 font-bold text-xl">
+        Đỗ Ngọc Duy Hưng
+      </h3>
       <div className="flex items-center justify-center mt-5">
         <img src={avatar} alt="" className="rounded-full w-[150px] h-[150px]" />
       </div>
