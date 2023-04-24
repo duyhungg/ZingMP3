@@ -145,11 +145,15 @@ const Player = ({ setIsShowRightSidebar }) => {
   return (
     <div className="bg-main-400 px-5 h-full flex z-100">
       <div className="w-[30%] flex-auto flex gap-3 items-center">
-        <img
-          src={songInfo?.thumbnail}
-          alt="thumbnail"
-          className="w-16 h-16 object-cover rounded-md"
-        />
+        {songInfo?.thumbnail ? (
+          <img
+            src={songInfo?.thumbnail}
+            alt="thumbnail"
+            className="w-16 h-16 object-cover rounded-md"
+          />
+        ) : (
+          <LoadingSong />
+        )}
 
         <div className="flex flex-col">
           <span className="font-semibold text-gray-700 text-sm">

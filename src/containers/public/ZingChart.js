@@ -8,6 +8,7 @@ import List from "../../components/List";
 import bgChart from "../../assets/bg-chart.jpg";
 import { RankList } from "../../components";
 import { RiH3 } from "react-icons/ri";
+import Loading from "../../components/Loading";
 function ZingChart() {
   const [chartData, setChartData] = useState(undefined);
   const [data, setData] = useState(null);
@@ -122,95 +123,105 @@ function ZingChart() {
   };
   return (
     <div className="">
-      <div className="flex flex-col">
-        <div className=" font-bold text-[40px] text-main-500 ml-6 flex items-center">
-          #ZingChart
-        </div>
-        <div className="relative">
-          <div className="absolute top-0 left-0 right-0 bottom-0 bg-[rbga(206,217,217,0.9)] "></div>
-          <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-[#CED9D9] to-transparent "></div>
-          <div className="flex-7 top-0 left-0 bottom-0 right-0">
-            <div className="flex-7  relative w-full h-[250px]">
-              {data && <Line ref={chartRef} data={data} options={options} />}
-              <div
-                className="tooltip"
-                style={{
-                  top: tooltip.top,
-                  left: tooltip.left,
-                  position: "absolute",
-                  opacity: tooltip.opacity,
-                }}>
-                <SongItem
-                  thumbnail={
-                    chartData?.RTChart?.items?.find(
-                      (i) => i.encodeId === tooltipData
-                    )?.thumbnail
-                  }
-                  title={
-                    chartData?.RTChart?.items?.find(
-                      (i) => i.encodeId === tooltipData
-                    )?.title
-                  }
-                  artists={
-                    chartData?.RTChart?.items?.find(
-                      (i) => i.encodeId === tooltipData
-                    )?.artistsNames
-                  }
-                  sid={
-                    chartData?.RTChart?.items?.find(
-                      (i) => i.encodeId === tooltipData
-                    )?.encodeId
-                  }
-                  style="bg-white"
-                />
+      {chartData ? (
+        <>
+          <div className="flex flex-col">
+            <div className=" font-bold text-[40px] text-main-500 ml-6 flex items-center">
+              #ZingChart
+            </div>
+            <div className="relative">
+              <div className="absolute top-0 left-0 right-0 bottom-0 bg-[rbga(206,217,217,0.9)] "></div>
+              <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-[#CED9D9] to-transparent "></div>
+              <div className="flex-7 top-0 left-0 bottom-0 right-0">
+                <div className="flex-7  relative w-full h-[250px]">
+                  {data && (
+                    <Line ref={chartRef} data={data} options={options} />
+                  )}
+                  <div
+                    className="tooltip"
+                    style={{
+                      top: tooltip.top,
+                      left: tooltip.left,
+                      position: "absolute",
+                      opacity: tooltip.opacity,
+                    }}>
+                    <SongItem
+                      thumbnail={
+                        chartData?.RTChart?.items?.find(
+                          (i) => i.encodeId === tooltipData
+                        )?.thumbnail
+                      }
+                      title={
+                        chartData?.RTChart?.items?.find(
+                          (i) => i.encodeId === tooltipData
+                        )?.title
+                      }
+                      artists={
+                        chartData?.RTChart?.items?.find(
+                          (i) => i.encodeId === tooltipData
+                        )?.artistsNames
+                      }
+                      sid={
+                        chartData?.RTChart?.items?.find(
+                          (i) => i.encodeId === tooltipData
+                        )?.encodeId
+                      }
+                      style="bg-white"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <div className="px-[60px] mt-12">
+            <RankList
+              data={chartData?.RTChart?.items}
+              number={10}
+              node={false}
+              isHideAlbums={true}
+              numberSlides={30}
+              numberArtists={30}
+            />
+          </div>
+          <div className=" m-4 flex flex-col">
+            <h3 className=" font-bold text-[40px] text-main-500 ml-6 flex items-center mt-3">
+              Bảng xếp hạng tuần
+            </h3>
+            <div className="flex gap-4 h-fit">
+              {chartData?.weekChart &&
+                Object.entries(chartData?.weekChart).map((item, index) => (
+                  <div
+                    className="flex-1 bg-gray-200 rounded-md px-[10px] py-5"
+                    key={index}>
+                    <h3 className="text-[24px] text-main-500 font-bold">
+                      {item[0] === "vn"
+                        ? "V-POP"
+                        : item[0] === "us"
+                        ? "US-UK"
+                        : item[0] === "korea"
+                        ? "K-POP"
+                        : ""}
+                    </h3>
+                    <div className="mt-4 h-fit">
+                      <RankList
+                        data={item[1]?.items}
+                        number={5}
+                        isHideAlbums={false}
+                        numberSlides={10}
+                        numberArtists={10}
+                        link={item[1]?.link}
+                      />
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="w-full h-full flex items-center justify-center">
+          <Loading />
         </div>
-      </div>
-      <div className="px-[60px] mt-12">
-        <RankList
-          data={chartData?.RTChart?.items}
-          number={10}
-          node={false}
-          isHideAlbums={true}
-          numberSlides={30}
-          numberArtists={30}
-        />
-      </div>
-      <div className=" m-4 flex flex-col">
-        <h3 className=" font-bold text-[40px] text-main-500 ml-6 flex items-center mt-3">
-          Bảng xếp hạng tuần
-        </h3>
-        <div className="flex gap-4 h-fit">
-          {chartData?.weekChart &&
-            Object.entries(chartData?.weekChart).map((item, index) => (
-              <div
-                className="flex-1 bg-gray-200 rounded-md px-[10px] py-5"
-                key={index}>
-                <h3 className="text-[24px] text-main-500 font-bold">
-                  {item[0] === "vn"
-                    ? "V-POP"
-                    : item[0] === "us"
-                    ? "US-UK"
-                    : item[0] === "korea"
-                    ? "K-POP"
-                    : ""}
-                </h3>
-                <div className="mt-4 h-fit">
-                  <RankList
-                    data={item[1]?.items}
-                    number={5}
-                    isHideAlbums={false}
-                    numberSlides={10}
-                    numberArtists={10}
-                    link={item[1]?.link}
-                  />
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
+      )}
     </div>
   );
 }
