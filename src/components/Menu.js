@@ -7,7 +7,7 @@ function Menu({ arr, arr1 }) {
           className="flex px-2 pt-2 pb-2 items-center justify-between hover:bg-overlay-20 hover:rounded-r-[20px] hover:rounded-l-[20px] hover:cursor-pointer">
           <div className="flex items-center gap-2 pr-5">
             <span>{item.icon1}</span>
-            <div className="font-sans">{item.text}</div>
+            <div className="font-semibold">{item.text}</div>
           </div>
           <div>{item.icon2}</div>
         </div>
@@ -19,7 +19,7 @@ function Menu({ arr, arr1 }) {
           className="flex px-2 pt-2 pb-2 items-center justify-between hover:bg-overlay-20 hover:rounded-r-[20px] hover:rounded-l-[20px] hover:cursor-pointer">
           <div className="flex items-center gap-2 pr-5">
             <span>{item.icon1}</span>
-            <div className="font-sans">{item.text}</div>
+            <div className="font-semibold">{item.text}</div>
           </div>
           <div>{item.icon2}</div>
         </div>
